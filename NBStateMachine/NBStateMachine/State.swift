@@ -17,7 +17,8 @@ public class State: NSObject {
     `State` class encapsulates a state value (string), and closure-based callbacks to fire when state machine enters or exits state.
     */
     public let name : String
-    
+    public var userInfo:AnyObject?
+
     public var willEnterStateNamed: ( (enteringStateName : String ) -> Void)?
     public var didEnterStateNamed:  ( (enteringStateName : String ) -> Void)?
     public var willExitStateNamed:  ( (exitingStateName  : String ) -> Void)?

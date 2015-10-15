@@ -24,13 +24,6 @@ class ViewController: UIViewController {
         
         //events
         let eventSitDown = Event(eventName: "Sit Down", sourceStates: [stateStanding, stateLyingDown], destinationState: stateSitting)
-        let eventStandUp = Event(eventName: "Stand Up", sourceStates: [stateSitting, stateRunning], destinationState: stateStanding)
-        let eventStartRunning = Event(eventName: "Start Running", sourceStates: [stateStanding, stateRunning], destinationState: stateRunning)
-        
-        let machine = NBStateMachine(initialState: stateLyingDown)
-        machine.addStates([stateSitting, stateRunning, stateStanding])
-        machine.addEvents([eventSitDown, eventStandUp, eventStartRunning])
-        
         eventSitDown.willFireEvent = { (event:Event) -> Bool in
             print("I'm about to sit down")
             return true
@@ -39,7 +32,9 @@ class ViewController: UIViewController {
             print("I'm am siting down")
         }
         
+
         
+        let eventStandUp = Event(eventName: "Stand Up", sourceStates: [stateSitting, stateRunning], destinationState: stateStanding)
         eventStandUp.willFireEvent = { (event:Event) -> Bool in
             print("I'm about to Stand")
             return true
@@ -47,8 +42,9 @@ class ViewController: UIViewController {
         eventStandUp.didFireEvent = { (event:Event) -> Void in
             print("I'm am Standing")
         }
-
         
+        
+        let eventStartRunning = Event(eventName: "Start Running", sourceStates: [stateStanding, stateRunning], destinationState: stateRunning)
         eventStartRunning.willFireEvent = { (event:Event) -> Bool in
             print("I'm about to Start running")
             return true
@@ -57,6 +53,15 @@ class ViewController: UIViewController {
             print("I'm am Running")
         }
 
+        
+        //initiate NBStateMachine
+        let machine = NBStateMachine(initialState: stateLyingDown)
+        machine.addStates([stateSitting, stateRunning, stateStanding])
+        machine.addEvents([eventSitDown, eventStandUp, eventStartRunning])
+        
+        
+        
+        //fire an event
         let transition = machine.fireEvent(eventSitDown) //try also eventStandUp, eventStartRunning
         printTransition(transition)
         
