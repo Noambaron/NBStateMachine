@@ -1,5 +1,5 @@
 //
-//  TransporterTests.swift
+//  StateMachineStateSwitchingTests.swift
 //  NBStateMachine
 //
 //  Created by Noam on 10/13/15.
