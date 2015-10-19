@@ -15,7 +15,7 @@ s.homepage 	= "https://github.com/Noambaron/NBStateMachine"
 s.license      = { :type => "MIT", :file => "LICENSE" }
 s.author         	= { "Noam bar-on" => "https://www.linkedin.com/in/noambaron" }
 s.social_media_url = "https://www.linkedin.com/in/noambaron"
-s.platform 	= :ios, "9.0"
+s.platform 	= :ios, "8.0"
 s.source   	= { :git => "https://github.com/Noambaron/NBStateMachine.git", :tag => "0.2" }
 s.source_files  = "NBStateMachine/NBStateMachine/**/*.swift"
 
