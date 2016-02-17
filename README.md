@@ -9,7 +9,7 @@ Simple State Machine written in Swift
 ## Requirements
 
 * iOS 9.0+
-* xCode 7+
+* Xcode 7+
 
 ## Example App 
 
